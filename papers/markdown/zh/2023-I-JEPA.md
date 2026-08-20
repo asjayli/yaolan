@@ -127,7 +127,7 @@ ImageNet-1K。表 1 展示了常见的 ImageNet-1K 线性评估基准上的性�
 
 <table><tr><td>预训练数据</td><td>架构</td><td>CIFAR100</td><td>Place205</td><td>INat18</td><td>Clevr/Count</td><td>Clevr/Dist</td></tr><tr><td>IN1k</td><td>ViT-H/14</td><td>87.5</td><td>58.4</td><td>47.6</td><td>86.7</td><td>72.4</td></tr><tr><td>IN22k</td><td>ViT-H/14</td><td>89.5</td><td>57.8</td><td>50.5</td><td>88.6</td><td>75.0</td></tr><tr><td>IN22k</td><td>ViT-G/16</td><td>89.5</td><td>59.1</td><td>55.3</td><td>86.7</td><td>73.0</td></tr></table>
 
-表 5．数据集与模型规模消融。评估预训练数据集规模与模型规模对迁移任务的影响。I-JEPA 受益于更大、更多样的数据集。当增大预训练数据集（IN1k 对 IN22k）时，我们看到 ViT-H/14 模型的性能提升。在 ImageNet-22k 上训练更大的 ViT-G/16 模型时，我们观察到语义任务上进一步的性能提升。ViT-H/14 在 IN1k 上训练 300 轮，在 IN22k 上训练相当于 900 个 IN1k 轮次。ViT-G/16 训练了相当于 600 个 IN1k 轮次。
+表 5．数据集与模型规模消融。评估预训练数据集规模与模型规模对迁移任务的影响。I-JEPA 受益于更大、更多样的数据集。当增大预训练数据集（IN1k 对 IN22k）时，我们看到 ViT-H/14 模型的性能提升。在 ImageNet-22k 上训练更大的 ViT-G/16 模型时，我们观察到语义任务上进一步的性能提升。ViT-H/14 在 IN1k 上训练 300 轮，在 IN22k 上训练相当于 900 个 IN1k 轮次。ViT-G/16 训练了相当于 600 个 IN1k 轮次。（译注：原文此处印作 ViT-H/16，系论文笔误，按表内数据径改为 ViT-G/16。）
 
 [图：图 5]  
 图 5．扩展。1% ImageNet-1K 半监督评估性能随预训练 GPU 时数的变化。I-JEPA 取得强劲性能所需计算量少于以往方法。与 MAE 与 data2vec 相比，I-JEPA 通过需要更少的预训练轮数获得显著加速。与依赖手工设计数据增强的 iBOT 相比，巨型 I-JEPA 模型（ViT-H/14）所需计算量少于其最小模型（ViT-S/16）。
