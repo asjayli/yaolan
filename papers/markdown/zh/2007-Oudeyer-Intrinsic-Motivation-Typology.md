@@ -24,7 +24,7 @@ Reviewed by: Jeffrey L. Krichmar, The Neurosciences Institute, USA；Cornelius W
 
 生命体（尤其是人类）中存在着极其多样的动机系统。例如，有些系统推动机体维持一定的化学能量水平（涉及进食），还有些系统推动机体将其体温或物理完整性维持在可存活的区间内。受这类动机以及（神经）动物行为学家（(neuro-)ethologists）对它们的理解的启发，机器人学家建造了被赋予类似系统的机器，以期使其具备自主性和类生命的智能属性（Arkin, 2005）。例如，受 sowbug 启发的机器人（Endo and Arkin, 2001）、螳螂机器人（Arkin et al., 1998）、类犬机器人（Fujita et al., 2001）都已被建造出来。
 
-某些动物——在人类身上最为显著——还拥有更一般的动机，推动它们去探索、操纵或试探其环境，促成好奇以及对游戏性活动和新活动的投入。这类动机被心理学家称为内在动机（intrinsic motivation）（Ryan and Deci, 2000），它对贯穿一生的感知运动（sensorimotor）与认知发展至关重要。心理学中有大量文献解释它为何对认知成长与组织不可或缺，并考察内在动机之下实际潜在的认知过程（Berlyne, 1960; Csikszentmihalyi, 1991; Deci and Ryan, 1985; Ryan and Deci, 2000; White, 1959）。这近年来吸引了越来越多发展机器人学研究者的兴趣，若干计算模型已被开发（综述见 Barto et al., 2004; Oudeyer et al., 2007）。
+某些动物——在人类身上最为显著——还拥有更一般的动机，推动它们去探索、操纵或试探其环境，促成好奇以及对游戏性活动和新活动的投入。这类动机被心理学家称为内在动机（intrinsic motivation）（Ryan and Deci, 2000），它对贯穿一生的感知运动（sensorimotor）与认知发展至关重要。心理学中有大量文献解释它为何对认知成长与组织不可或缺，并考察内在动机之下实际潜在的认知过程（Berlyne, 1960; Csikszentmihalyi, 1991; Deci and Ryan, 1985; Ryan and Deci, 2000; White, 1959）。这一情况近年来吸引了越来越多发展机器人学研究者的兴趣，若干计算模型已被开发（综述见 Barto et al., 2004; Oudeyer et al., 2007）。
 
 然而，内在动机这一概念本身从未真正从计算的角度得到过一致而批判性的讨论。许多作者凭直觉使用它，而未追问它究竟意味着什么。因此，本文的第一个目标与贡献是先在心理学中综述这一概念，随后以计算术语对其做批判性再解释。我们将表明，心理学给出的定义实际上并不令人满意。作为后果，我们将通过给出一套可能计算方法的类型学，为内在动机的系统性操作研究奠定基础，并讨论给出单一通用的内在动机计算定义是否可能、是否有用。我们将给出的类型学部分基于既有计算模型，但也提出概念化内在动机的新方式。我们将着力考察这些模型之间的相互关系，并提出一个划分为宽泛而互不相同的类别的分类。
 
@@ -48,7 +48,7 @@ Reviewed by: Jeffrey L. Krichmar, The Neurosciences Institute, USA；Cornelius W
 
 最后，也可能有一个孩子为了乐趣本身而认真做作业，因为他从发现新知识中体验到愉悦，或例如把数学题看得和玩电子游戏一样有趣。此时，其行为是被内在（且内部）驱动的。
 
-这些不同种类的动机有时也可以在同一全局活动中叠加或交织。例如，一个做作业的孩子很可能部分地被“考试得高分”外在驱动，部分地被“学习有趣的新东西”内在驱动，这完全是可能的。再如，设想一个孩子因打网球而具有内在动机，但必须骑自行车才能到网球场（而他并不特别喜欢骑车）。此时，骑车这一行为是一个内部的、外在驱动的行为，它源自打网球这一内在动机行为之外延。
+这些不同种类的动机有时也可以在同一全局活动中叠加或交织。例如，一个做作业的孩子很可能部分地被“考试得高分”外在驱动，部分地被“学习有趣的新东西”内在驱动，这完全是可能的。再如，设想一个孩子因打网球而具有内在动机，但必须骑自行车才能到网球场（而他并不特别喜欢骑车）。此时，骑车这一行为是一个内部的、外在驱动的行为，它由打网球这一内在动机行为衍生而来。
 
 ## 是什么使一项活动具有内在激励性？（What makes an activity intrinsically motivating?）
 
@@ -70,7 +70,7 @@ Reviewed by: Jeffrey L. Krichmar, The Neurosciences Institute, USA；Cornelius W
 
 **计算强化学习与奖励（Computational Reinforcement Learning and rewards）。** 在机器人系统中，经常出现的情况是：使动机变量尽可能保持饱足的动作策略既不是固定的、也不是最初手工编码的，而是应当被学习出来的。发生这种情况的标准框架是“计算强化学习（computational reinforcement learning, CRL）”（Sutton and Barto, 1998）。这一框架引入了许多算法，目标是找到最大化“奖励（rewards）”的策略，奖励是 CRL 的核心概念。非常重要的一点是，CRL 中“奖励”一词的含义是在一种特定的技术意义上使用的，不同于心理学中（尤其是操作性条件反射理论（Skinner, 1953）中）“奖励”一词的含义。尽管如此，这两种含义有重叠，这在文献中造成了若干混淆。在 CRL 中，“奖励”在技术上只是一个被连续测量的数值量，用于驱动动作选择机制，使该量在未来的累积值最大化。CRL 理论对该值由什么/如何/在哪里产生完全不可知（agnostic）。回到实现动物行为学启发的动机系统的机器人，这个值可以是例如机器人内部能量水平的值。但是——这正是计算文献中 CRL 的常见用法——这个值也可以由人类工程师直接设定，或由人类工程师构建的外部程序设定。例如，在许多工程师试图建造能向前行走的机器人的实验中，使用了 CRL 算法，其奖励是来自一个外部系统（如安装在天花板上的摄像头）的值，该系统观测机器人移动得多快（或没有移动），该值即速度。正是在这类实验中，“reward”一词与操作性条件反射文献中的“reward”一词重叠，指获得外部对象/事件/属性，如金钱、食物或学校里的高分。但必须记住，在使用 CRL 的机器人中，奖励可以完全由内部定义，类似于神经递质（neurotransmitter）的实际释放。
 
-**作为多种动机之共同通货的奖励（Rewards as a common currency for multiple motivations）。** CRL 中奖励概念的一个优点在于：作为数值量，它可以充当单一架构中若干并存动机之间的“共同通货（common currency）”（McFarland and Bosser, 1994）。确实，在一个典型的机体（自然的或人工的）中，不同且可能冲突的动机会试图把动作推向某些方向：例如，能量水平维持驱力可能与物理完整性维持驱力、睡眠驱力以及推动寻找社会伙伴的驱力并存。为了在这些动机所蕴含的可能冲突动作之间做出仲裁，人们利用数值比较与各动机相关联的期望奖励的可能性。此外，人们经常见到这样的架构：每个奖励都被赋予一个（可能是自适应的）数值权重（Konidaris and Barto, 2006）。
+**作为多种动机之共同通货的奖励（Rewards as a common currency for multiple motivations）。** CRL 中奖励概念的一个优点在于：作为数值量，它可以充当单一架构中若干并存动机之间的“共同通货（common currency）”（McFarland and Bosser, 1994）。确实，在一个典型的机体（自然的或人工的）中，不同且可能冲突的动机会试图把动作推向某些方向：例如，能量水平维持驱力可能与物理完整性维持驱力、睡眠驱力以及推动寻找社会伙伴的驱力并存。为了在这些动机所蕴含的可能冲突动作之间做出仲裁，人们利用对与各动机相关联的期望奖励进行数值比较的可能。此外，人们经常见到这样的架构：每个奖励都被赋予一个（可能是自适应的）数值权重（Konidaris and Barto, 2006）。
 
 **内部 vs. 外部动机（Internal vs. external motivations）。** 有了这个在机器人中实现动机的架构框架，就可以考察内部动机与外部动机之间的第一种区分。这一差别关乎自主性（autonomy），在于计算/生成奖励的机制的功能位置。如果奖励——即系统要最大化的数值量——来自自主系统的外部，则称之为外部的（external）。这就是上面提到的例子：行走机器人由来自人类或安装于天花板上的带摄像头系统的奖励所驱动。如果奖励由自主系统内部计算并生成，则称之为内部的（internal）。这就是上面提到的例子：与能量维持驱力的饱足相关联的奖励。这一差别总结于图 1。然而，这一差别在机器人的情形下有时会很微妙。计算机允许我们做对人类而言不可能的操作。例如，工程师完全可以建造一台能自己监测它是否在向前走、速度多快的自主机器，并可以在机器人的内部架构中纳入一个“尽可能快地向前走”的动机。实践中，这将产生与天花板上的行走检测系统大致相同的行为，但在技术上我们得到的是一个内部奖励（然而，正如下文将看到的，它是外在的）。当然，这类操作对人类不可能，在人类身上也难找到这类“极限”例子。
 
@@ -93,7 +93,7 @@ Reviewed by: Jeffrey L. Krichmar, The Neurosciences Institute, USA；Cornelius W
 
 此外，虽然我们此处聚焦于与内在动机相关的奖励定义，但隐含的是：在某个特定机器人上，这些内在奖励可能与其他类型的奖励系统（如饥饿、社会在场等）整合在一起。还应注意的是，当我们给出总结每一大类的图示时，图中只画出与内在动机系统直接相关的认知回路，但隐含的是，在某个特定机器人完整的认知架构中，可能还有许多其他模块在并发运行。
 
-在这一类型学中，某些内在奖励模型已在文献中被实现和测试。由这些模型出发，我们提出若干变体。其中一些变体是对基本模型的必要改进，来自与机器人实际实验；另一些变体是自然的形式变体，因而在实现上极为相似，但有趣的是，它们直觉上对应着一些心理学中通常不被视为内在动机的人类动机。这在“内在动机应当如何被概念化”上的含义将在讨论部分展开。最后，我们还提出内在动机的新的形式模型，它们对应于心理学中的重要路径，但似乎从未在计算框架中被操作性地研究过。
+在这一类型学中，某些内在奖励模型已在文献中被实现和测试。由这些模型出发，我们提出若干变体。其中一些变体是对基本模型的必要改进，来自用机器人开展的实验；另一些变体是自然的形式变体，因而在实现上极为相似，但有趣的是，它们直觉上对应着一些心理学中通常不被视为内在动机的人类动机。这在“内在动机应当如何被概念化”上的含义将在讨论部分展开。最后，我们还提出内在动机的新的形式模型，它们对应于心理学中的重要路径，但似乎从未在计算框架中被操作性地研究过。
 
 据我们所知，这样的类型学是首次被给出，我们希望它有助于组织未来的研究。然而，同样重要的是理解这一类型学不打算成为什么：
 
@@ -122,7 +122,7 @@ Reviewed by: Jeffrey L. Krichmar, The Neurosciences Institute, USA；Cornelius W
 <!-- image -->
 [图：图 2. 机器人由其感觉通道与运动通道取值的连续流刻画，记作 SM(t)。]
 
-**信息论与分布式模型（Information theoretic and distributional models）。** 这一路径基于机器人构建的表示，这些表示估计在特定情境下观察到某些事件 $e^k$ 的概率分布，情境被定义为感知运动流中的数学构型。这样的事件有多种类型，但被测量的概率通常是：在感知运动流中观察到某个状态 $SM^k$ 的概率，记作 $P(SM^k)$；或观察到的状态间特定转移的概率，如 $P(SM^k(t), SM^l(t+1))$；或在观察到给定状态之后观察到特定状态的概率 $P(SM^k(t+1)|SM^l(t))$。这里状态 $SM^k$ 既可以直接是数值原型（prototypes），也可以是感知运动空间中的完整区域（这可能涉及一种对空间离散化的机制）。在下文中，我们将认为所有这些可能性皆成立，并只使用一般记法 $P(e^k)$。我们将假设机器人拥有一种机制，使其能够在经验世界的过程中，对可能事件空间 E 中事件概率分布的估计进行内部构建（但可能事件空间不是预先定义的，也应由机器人发现，故典型地这是一个初始为空、随经验增长的空间）。最后，我们对离散空间使用刻画分布函数形状的熵（entropy）概念：
+**信息论与分布式模型（Information theoretic and distributional models）。** 这一路径基于机器人构建的表示，这些表示估计在特定情境下观察到某些事件 $e^k$ 的概率分布，情境被定义为感知运动流中的数学构型。这样的事件有多种类型，但被测量的概率通常是：在感知运动流中观察到某个状态 $SM^k$ 的概率，记作 $P(SM^k)$；或观察到状态间特定转移的概率，如 $P(SM^k(t), SM^l(t+1))$；或在观察到给定状态之后观察到特定状态的概率 $P(SM^k(t+1)|SM^l(t))$。这里状态 $SM^k$ 既可以直接是数值原型（prototypes），也可以是感知运动空间中的完整区域（这可能涉及一种对空间离散化的机制）。在下文中，我们将认为所有这些可能性皆成立，并只使用一般记法 $P(e^k)$。我们将假设机器人拥有一种机制，使其能够在经验世界的过程中，对可能事件空间 E 中事件概率分布的估计进行内部构建（但可能事件空间不是预先定义的，也应由机器人发现，故典型地这是一个初始为空、随经验增长的空间）。最后，我们对离散空间使用刻画分布函数形状的熵（entropy）概念：
 
 $$
 H(E) = - \sum_{e^k \in E} P(e^k) \mathsf{ln}(P(e^k))\tag{1}
@@ -142,12 +142,12 @@ $$
 r(e^k, t) = C \cdot (1 - P(e^k, t))\tag{3}
 $$
 
-其中 C 是常数。这一奖励计算机制随后可以整合进一个 CRL 架构，后者将选择动作以最大化这些奖励在未来期望累积和。实际上，这在以下所有定义中都是隐含的，故正文集中于定义和计算奖励的显式机制。基于 UM 类机制的多种模型已在计算文献中被实现（例如 Huang and Weng, 2004）。
+其中 C 是常数。这一奖励计算机制随后可以整合进一个 CRL 架构，后者将选择动作以最大化这些奖励在未来累积和的期望。实际上，这在以下所有定义中都是隐含的，故正文集中于定义和计算奖励的显式机制。基于 UM 类机制的多种模型已在计算文献中被实现（例如 Huang and Weng, 2004）。
 
 <!-- image -->
 [图：图 3. 基于信息论/分布式知识的内在动机计算方法的一般架构。]
 
-**信息增益动机（Information gain motivation, IGM）。** 心理学与教育学中还常提出，人类有学习与同化（assimilate）的自然倾向（Ryan and Deci, 2000）。用信息论术语说，这一同化观念或“学习之乐”可以用事件 $e^k$ 发生之后机器人对世界的知识的降低的不确定性来建模：
+**信息增益动机（Information gain motivation, IGM）。** 心理学与教育学中还常提出，人类有学习与同化（assimilate）的自然倾向（Ryan and Deci, 2000）。用信息论术语说，这一同化观念或”学习之乐”可以用事件 $e^k$ 发生之后机器人对世界知识的不确定性的降低来建模：
 
 $$
 r(e^k, t) = C \cdot (H(E, t) - H(E, t+1))\tag{4}
@@ -163,7 +163,7 @@ $$
 
 其中 $C$ 是常数。注意这与 UM 有些不同：随着新异性增加，奖励呈非线性增长。一个事件对 UM 而言可以高度新异且有奖励，但若人们并未更强烈地预期另一个事件取代它发生，则它并不很令人惊讶（例如，平坦均匀分布中的任何随机事件对 UM 是新异且有奖励的，但对 DSM 并不令人惊讶、奖励很低）。
 
-**分布式熟悉性动机（Distributional familiarity motivation, DFM）。** 在心理学文献中，内在动机一般指的是推动机体探索其环境的机制。然而，前述可能系统存在直接变体，它们既简单又直觉上对应着既有人类动机形式。例如，把 UM 的符号反过来，就建模了一种寻找被非常频繁观察到的、从而熟悉的（familiar）情境的动机：
+**分布式熟悉性动机（Distributional familiarity motivation, DFM）。** 在心理学文献中，内在动机一般指的是推动机体探索其环境的机制。然而，前述可能系统存在直接变体，它们既简单又直觉上对应着现有的人类动机形式。例如，把 UM 的符号反过来，就建模了一种寻找被非常频繁观察到的、从而熟悉的（familiar）情境的动机：
 
 $$
 r(e^k) = C \cdot P(e^k)\tag{6}
@@ -174,10 +174,10 @@ $$
 <!-- image -->
 [图：图 4. 基于预测式知识的内在动机计算方法的一般架构。]
 
-**预测式模型（Predictive models）。** 通常，机器人中的知识与预期不是用完整的概率分布表示的，而是基于预测器（predictors）的使用，如神经网络或支持向量机（support vector machines），它们对未来事件做出直接预测（见图 4）。在这类架构中，同样可以对各种形式的内在动机做计算定义。这些预测器记作 Π，典型地用于在给定当前感知运动情境 SM(t)（可能还有过去感知运动情境）的条件下，预测将在（近或远的）未来发生的某些属性 $Pr^k$ 或感知运动状态 SM。与上文类似，我们将用一般记法 $e^k$ 表示所有属性与状态。我们还将用记法 $SM(t)$ 表示一个编码了当前感知运动情境、可能还有过去情境的结构。于是，一个系统的一般预测记作：
+**预测式模型（Predictive models）。** 通常，机器人中的知识与预期不是用完整的概率分布表示的，而是基于预测器（predictors）的使用，如神经网络或支持向量机（support vector machines），它们对未来事件做出直接预测（见图 4）。在这类架构中，同样可以对各种形式的内在动机做计算定义。这些预测器记作 Π，典型地用于在给定当前感知运动情境 SM(t)（可能还有过去感知运动情境）的条件下，预测将在（近或远的）未来发生的某些属性 $Pr^k$ 或感知运动状态 SM。与上文类似，我们将用一般记法 $e^k$ 表示所有属性与状态。我们还将用记法 $SM(\to t)$ 表示一个编码了当前感知运动情境、可能还有过去情境的结构。于是，一个系统的一般预测记作：
 
 $$
-\Pi(SM(t)) = \tilde{e}^k(t+1)\tag{7}
+\Pi(SM(\to t)) = \tilde{e}^k(t+1)\tag{7}
 $$
 
 然后我们定义 $E_r(t)$ 为该预测的误差（error），即被预测事件 $\tilde{e}^k(t+1)$ 与实际发生事件 $e^k(t+1)$ 之间的距离：
@@ -191,7 +191,7 @@ $$
 **预测式新异性动机（Predictive novelty motivation, NM）。** 接着很自然地可以提出在这一框架中建模新异性动机的第一种方式。有趣的情境是那些预测误差（prediction error）最高的情境：
 
 $$
-r(SM(t)) = C \cdot E_r(t)\tag{9}
+r(SM(\to t)) = C \cdot E_r(t)\tag{9}
 $$
 
 其中 C 是常数。这类动机系统的实现例子可见于例如 Barto et al. (2004) 与 Thrun (1995)。
@@ -199,29 +199,29 @@ $$
 **中间水平新异性动机（Intermediate level of novelty motivation, ILNM）。** 依照提出人类被中等/最优失谐情境吸引的心理学家的观点，可以在前述机制中引入一个定义这一中等新异性水平的阈值 $E_r^{\sigma}$：
 
 $$
-r(SM(t)) = C_1 \cdot e^{-C_2 \cdot \|E_r(t) - E_r^{\sigma}\|^2}\tag{10}
+r(SM(\to t)) = C_1 \cdot e^{-C_2 \cdot \|E_r(t) - E_r^{\sigma}\|^2}\tag{10}
 $$
 
 其中 $C_1$ 与 $C_2$ 是常数。然而，这一定义的缺点是把阈值的整定留给了人类工程师的直觉。事实上，对整个感知运动空间只用单一阈值在实践中甚至可能相当成问题，因为新异性与相似性的概念在该空间的不同部分可能差异很大，而开发自动自适应阈值机制是一个困难问题。
 
-**学习进步动机（Learning progress motivation, LPM）。** 若干研究者提出了另一种建模最优失谐的方式，它避免了设定阈值的问题，且与上文本论节中描述的信息增益度量相关。它在于用这样一个系统建模内在动机：当预测随时间改善时，该系统生成奖励。于是，系统将试图最大化预测进步（prediction progress），即预测误差的降低。预测进步在 Oudeyer et al. (2007) 中也被称为“学习进步（learning progress）”。要得到形式模型，需要精确而细致地规定这一降低如何计算。确实，正如 Oudeyer et al. (2007) 所论证的，一种可能的天真实现——比较 t 时刻附近的时间窗与 t-θ 时刻附近的时间窗之间的预测误差——实际上是无意义的：例如，它可能把“机器人试图预测风中叶子运动（高度不可预测）的情境”到“机器人只是盯着白墙试图预测墙的颜色是否会变（高度可预测）的情境”之间的转移赋予高奖励。系统不应试图比较非常不同的感知运动情境与质性不同的预测。因此，一种可能是使用一种机制，使机器人能把相似情境归组到区域（regions）$\mathcal{R}_n$ 之中，在区域内比较才有意义。这些区域的数量与边界典型地被自适应更新。然后，对每个这样的区域，机器人监测预测误差的演化，并对它们在过去时间中的整体导数（derivative）建立模型，这就定义了这些区域中的学习进步，从而定义奖励。数学上：
+**学习进步动机（Learning progress motivation, LPM）。** 若干研究者提出了另一种建模最优失谐的方式，它避免了设定阈值的问题，且与上文信息论节中描述的信息增益度量相关。它在于用这样一个系统建模内在动机：当预测随时间改善时，该系统生成奖励。于是，系统将试图最大化预测进步（prediction progress），即预测误差的降低。预测进步在 Oudeyer et al. (2007) 中也被称为“学习进步（learning progress）”。要得到形式模型，需要精确而细致地规定这一降低如何计算。确实，正如 Oudeyer et al. (2007) 所论证的，一种可能的天真实现——比较 t 时刻附近的时间窗与 t-θ 时刻附近的时间窗之间的预测误差——实际上是无意义的：例如，它可能把“机器人试图预测风中叶子运动（高度不可预测）的情境”到“机器人只是盯着白墙试图预测墙的颜色是否会变（高度可预测）的情境”之间的转移赋予高奖励。系统不应试图比较非常不同的感知运动情境与质性不同的预测。因此，一种可能是使用一种机制，使机器人能把相似情境归组到区域（regions）$\mathcal{R}_n$ 之中，在区域内比较才有意义。这些区域的数量与边界典型地被自适应更新。然后，对每个这样的区域，机器人监测预测误差的演化，并对它们在过去时间中的整体导数（derivative）建立模型，这就定义了这些区域中的学习进步，从而定义奖励。数学上：
 
 $$
-r(SM(t)) = \langle E_r^{\mathcal{R}_n}(t-\Theta) \rangle - \langle E_r^{\mathcal{R}_n}(t) \rangle\tag{11}
+r(SM(\to t)) = \langle E_r^{\mathcal{R}_n}(t-\theta) \rangle - \langle E_r^{\mathcal{R}_n}(t) \rangle\tag{11}
 $$
 
-其中 SM(t) 属于区域 $\mathcal{R}_n$，而 $\langle E_r^{\mathcal{R}_n}(t) \rangle$ 是预测器在最近 t 次关于属于区域 $\mathcal{R}_n$ 的感知运动情境 SM(t) 的预测中所犯预测误差的均值。关于如何实现这样一个系统的详细研究见 Oudeyer et al. (2007)。
+其中 SM(t) 属于区域 $\mathcal{R}_n$，而 $\langle E_r^{\mathcal{R}_n}(t) \rangle$ 是预测器在最近 τ 次关于属于区域 $\mathcal{R}_n$ 的感知运动情境 SM(t) 的预测中所犯预测误差的均值。关于如何实现这样一个系统的详细研究见 Oudeyer et al. (2007)。
 
 另一种计算学习进步的方式在 Schmidhuber (1991) 中被提出。它在于测量预测器 Π 关于同一感知运动情境 $SM(t)$ 在第一次预测与第二次预测之间的预测误差之差，第二次预测是在预测器刚被一条学习规则更新之后做出的：
 
 $$
-r(SM(t)) = E_r(t) - E_r'(t)\tag{12}
+r(SM(\to t)) = E_r(t) - E_r'(t)\tag{12}
 $$
 
 其中
 
 $$
-E_r'(t) = \|\Pi'(SM(t)) - e^k(t+1)\|\tag{13}
+E_r'(t) = \|\Pi'(SM(\to t)) - e^k(t+1)\|\tag{13}
 $$
 
 其中 Π′ 是由于预测 $\Pi(SM(t))$ 与对实际结果 $e^k(t+1)$ 的知觉而经历学习更新之后已被更新的预测器。
@@ -229,13 +229,13 @@ $$
 **预测式惊讶动机（Predictive surprise motivation, SM）。** 与 DSM 类比，也可以用基于预测式知识的框架来建模惊讶动机。如上所解释的，惊讶可以被理解为一个被强烈预期不会发生的事件的发生，或一个被强烈预期发生的事件的不发生。这里，与前几段相反，由于惊讶关联到一个时间跨度很短的特定事件，有必要有一个在每个时间步都显式建模预测（即预期）强度的机制。因此，我们需要引入一个元预测器（metapredictor）MetaΠ，它试图在时刻 t 预测 Π 在时刻 t 的误差 $E_r(t)$ 将会是多少：
 
 $$
-\mathsf{Meta}\Pi(SM(t)) = \widetilde{E_r(t)}\tag{14}
+\mathsf{Meta}\Pi(SM(\to t)) = \widetilde{E_r(t)}\tag{14}
 $$
 
 其中 $\widetilde{E_r(t)}$ 是 Π 的被预测绝对误差。在技术上，MetaΠ 是与 Π 同类的机器，例如可以是神经网络或支持向量机。它在每个时间步、当实际 $E_r(t)$ 被测量之后被更新。或者，MetaΠ 也可以简单地实现为计算最近的过去中对同一预测的近期误差均值。然后我们可以定义一个对高度惊讶情境提供高奖励的系统，基于预测中的实际误差与预测误差的期望水平之间的比值（惊讶的情境是那些实际预测误差很高、但被预期的误差水平很低的情境）：
 
 $$
-r(SM(t)) = C \cdot \frac{E_r(t)}{\mathsf{Meta}\Pi(SM(t))}\tag{15}
+r(SM(\to t)) = C \cdot \frac{E_r(t)}{\mathsf{Meta}\Pi(SM(\to t))}\tag{15}
 $$
 
 其中 C 是常数。
@@ -243,26 +243,26 @@ $$
 **预测式熟悉性动机（Predictive familiarity motivation, FM）。** 如在信息论模型中那样，上述预测式模型的结构可以用来实现体验熟悉（familiar）情境的动机：
 
 $$
-r(SM(t)) = \frac{C}{E_r(t)}\tag{16}
+r(SM(\to t)) = \frac{C}{E_r(t)}\tag{16}
 $$
 
 其中 C 是常数。然而这一实现可能易受噪声影响，在真实世界中未必有用，因为它只基于时空上局部（local）的预测。要得到对熟悉性更稳健的系统，一种可能是计算当前感知运动情境邻域中过去预测的一个平滑（smoothed）误差。可以使用 LPM 段中引入的区域（region）概念：
 
 $$
-r(SM(t)) = \frac{C}{\langle E_r^{\mathcal{R}_n}(t) \rangle}\tag{17}
+r(SM(\to t)) = \frac{C}{\langle E_r^{\mathcal{R}_n}(t) \rangle}\tag{17}
 $$
 
 其中 $SM(t)$ 落入感知运动区域 $\mathcal{R}_n$。如同 LPM，这一架构假设一种允许渐进构建 $\mathcal{R}_n$ 区域的机制。这一机制可以基于如 Oudeyer et al. (2007) 中的迭代区域分裂（region splitting），或简单地基于与 $SM(t)$ 的距离的一个（可能是自适应的）阈值 $T_f$：
 
 $$
-\mathcal{R}_n(SM_i(t)) = \{SM_j(t) \mid \mathsf{dist}(SM_j(t), SM_i(t)) < T_f\}\tag{18}
+\mathcal{R}_n(SM_i(\to t)) = \{SM_j(\to t) \mid \mathsf{dist}(SM_j(\to t), SM_i(\to t)) < T_f\}\tag{18}
 $$
 
 其中 dist(·,·) 是一个距离度量。
 
 ## 基于能力的内在动机模型（Competence-based models of intrinsic motivation）
 
-内在动机的第二种主要计算路径，基于智能体（agent）在达成自我决定的结果或目标方面的能力（competence）的度量。有趣的是，这一路径尚未在计算文献中被研究，但我们认为它蕴含未来研究的巨大潜力。确实，它直接受启发于关于效能（effectance）（White, 1959）、个人因果（personal causation）（De Charms, 1968）、能力与自我决定（competence and self-determination）（Deci and Ryan, 1985）以及“心流（Flow）”（Csikszentmihalyi, 1991）的重要心理学理论。这里的核心是“挑战（challenge）”概念，连同其难度度量与实际表现度量。这里的挑战将是任何被个体自行设定、并试图通过行动去达成的感知运动构型 SM，或任何感知运动构型的属性集合 $\{P_k\}$。于是，挑战在这里是一个自我决定的目标（self-determined goal），记作 $g^k$。决定相关活动有趣性（interestingness）水平的，是达成过程的各种属性，而非被达成的特定目标的“意义”。虽然前几节使用的预测机制或概率模型可以用于目标达成（goal-reaching）架构，但它们不是必需的（例如，可以实现一些通过 Q-learning 试图达成自我生成目标、而从不显式预测未来感知运动情境的系统）。此外，虽然在某些情形下，某些基于能力的与基于知识的内在动机模型可能多少等价，它们往往会产生非常不同的行为。确实，预测一个情境中会发生什么的能力，与为达成一个给定的自我决定目标而改变该情境的能力，只是松散耦合的。
+内在动机的第二种主要计算路径，基于智能体（agent）在达成自我决定的结果或目标方面的能力（competence）的度量。有趣的是，这一路径尚未在计算文献中被研究，但我们认为它蕴含未来研究的巨大潜力。确实，它直接受启发于关于效能（effectance）（White, 1959）、个人因果（personal causation）（De Charms, 1968）、能力与自我决定（competence and self-determination）（Deci and Ryan, 1985）以及“心流（Flow）”（Csikszentmihalyi, 1991）的重要心理学理论。这里的核心是“挑战（challenge）”概念，连同其难度度量与实际表现度量。这里的挑战将是任何被个体自行设定、并试图通过行动去达成的感知运动构型 $SM^k$，或任何感知运动构型的属性集合 $\{P_k\}$。于是，挑战在这里是一个自我决定的目标（self-determined goal），记作 $g^k$。决定相关活动有趣性（interestingness）水平的，是达成过程的各种属性，而非被达成的特定目标的“意义”。虽然前几节使用的预测机制或概率模型可以用于目标达成（goal-reaching）架构，但它们不是必需的（例如，可以实现一些通过 Q-learning 试图达成自我生成目标、而从不显式预测未来感知运动情境的系统）。此外，虽然在某些情形下，某些基于能力的与基于知识的内在动机模型可能多少等价，它们往往会产生非常不同的行为。确实，预测一个情境中会发生什么的能力，与为达成一个给定的自我决定目标而改变该情境的能力，只是松散耦合的。
 
 更技术性地，我们在此假设一个认知架构，其中有一个“专知（know-how）”模块 $KH(t_g)$，负责规划动作以达成自我决定的目标 $g^k$，并通过经验学习。还有一个动机模块，将基于 $KH(t_g)$ 的表现赋予奖励。这一架构中有两个时间尺度：对应于原子动作的传统物理时间尺度，记作 $t$；以及与目标达成情节（goal-reaching episodes）的序列相关的抽象时间尺度，记作 $t_g$。一个目标达成情节由在时刻 $t_g$ 设定目标 $g^k(t_g)$ 开始，随后是由 $KH(t_g)$ 决定的一个动作序列以试图达成 $g^k(t_g)$，其时长受超时（timeout）阈值 $T_g$ 约束。在目标被达成或超时终止了 $KH(t_g)$ 之后，新的目标达成情节可以在抽象时刻 $t_g+1$ 开始。在每个情节结束时，已被达成的感知运动构型，记作 $\widehat{g_k(t_g)}$，与初始目标 $g_k(t_g)$ 相比较，以计算 $g^k$ 的（未）达成水平（level of (mis-)achievement）$l_a(g_k, t_g)$：
 
@@ -282,19 +282,19 @@ $$
 **最大化无能动机（Maximizing incompetence motivation, IM）。** 第一种基于能力的内在动机方法可以是这样一个系统：推动机器人去设定其表现最差的挑战/目标。这是一种对最大难度挑战的动机。可以实现为：
 
 $$
-r(SM(t), g_k, t_g) = C \cdot l_a(g_k, t_g)\tag{20}
+r(SM(\to t), g_k, t_g) = C \cdot l_a(g_k, t_g)\tag{20}
 $$
 
 注意这里以及在基于能力的路径的所有地方，奖励只在情节结束时生成。前一方程只度量单一尝试/情节中试图达成一个给定目标的无能，从而度量有趣性。构建一个把机器人此前情节中关于同一目标的表现纳入考量的奖励系统可能是有用的，尤其对那些表现方差很大的目标。方程为：
 
 $$
-r(SM(t), g_k, t_g) = C \cdot \langle l_a(g_k, t_g) \rangle\tag{21}
+r(SM(\to t), g_k, t_g) = C \cdot \langle l_a(g_k, t_g) \rangle\tag{21}
 $$
 
-其中 $\langle l_a(g_k, t_g) \rangle$ 表示在设定了该目标的最近 t 个情节中试图达成 $g_k$ 的表现均值。这一奖励系统还可以进一步更新，以允许在计算一个目标的有趣性时进行泛化（generalization）。在前两个方程中，一个给定目标 $g_k$ 的有趣性不依赖于机器人在相似目标上的表现。然而，这可能是一个有用的特性：试想一个玩弄自己手臂的机器人，发现试着抓取前方桌上 30 cm 处的一个物体是有趣的。若机器人能推断出试着抓取 35 cm 处的物体同样有趣、而无需从头重算有趣性水平，将是有潜在用处的。为实现这一点，一个可能的解是使用如下类型的方程：
+其中 $\langle l_a(g_k, t_g) \rangle$ 表示在设定了该目标的最近 τ 个情节中试图达成 $g_k$ 的表现均值。这一奖励系统还可以进一步更新，以允许在计算一个目标的有趣性时进行泛化（generalization）。在前两个方程中，一个给定目标 $g_k$ 的有趣性不依赖于机器人在相似目标上的表现。然而，这可能是一个有用的特性：试想一个玩弄自己手臂的机器人，发现试着抓取前方桌上 30 cm 处的一个物体是有趣的。若机器人能推断出试着抓取 35 cm 处的物体同样有趣、而无需从头重算有趣性水平，将是有潜在用处的。为实现这一点，一个可能的解是使用如下类型的方程：
 
 $$
-r(SM(t), g_k, t_g) = C \cdot \langle l_a(g_k^{\sigma g}, t_g) \rangle\tag{22}
+r(SM(\to t), g_k, t_g) = C \cdot \langle l_a(g_k^{\sigma g}, t_g) \rangle\tag{22}
 $$
 
 其中 $\langle l_a(g_k^{\mathcal{R}_n}, t_g) \rangle$ 表示试图达成满足 dist$(g_k, g_k^{\sigma g}) < \sigma_g$ 的目标 $g_k^{\sigma g}$ 的表现均值，dist(·,·) 是距离函数，$\sigma_g$ 是数值阈值。于是，用这一公式，在计算有趣性时，与当前目标距离小于给定阈值的所有目标都被视为等价于当前目标。
@@ -302,19 +302,19 @@ $$
 **最大化能力进步动机——又称心流动机（Maximizing competence progress - aka Flow motivation, CPM）。** 最大化无能并不能很好地建模由 (Csikszentmihalyi, 1991) 提出的最优挑战与“心流（flow）”的心理学模型。心流指与难度最优的活动相关联的愉悦状态：既不太容易也不太困难。由于一个目标的难度可以用达成该目标的（平均）表现来建模，建模心流的一种可能方式是引入两个阈值来定义最优难度区间。然而，阈值的使用可能相当脆弱，需要手工整定，且可能需要复杂的自适应机制在机器人生命周期中更新这些阈值。可以采取另一条避免使用阈值的路径。它在于把一个挑战的有趣性定义为机器人反复尝试达成它的过程中所体验到的能力进步（competence progress）。于是，一个机器人起初不擅长、但正迅速变好的挑战将具有高奖励。于是，实现 CPM 的第一种方式是：
 
 $$
-r(SM(t), g_k, t_g) = C \cdot (l_a(g_k, t_g - \Theta) - l_a(g_k, t_g))\tag{23}
+r(SM(\to t), g_k, t_g) = C \cdot (l_a(g_k, t_g - \theta) - l_a(g_k, t_g))\tag{23}
 $$
 
 对应于任务 $g_k$ 的当前表现与上一次尝试 $g_k$（在记作 $t_g - \theta$ 的时刻）时的表现之差。同样，由于目标达成可能存在高方差，可以使用平滑后的差值：
 
 $$
-r(SM(t), g_k, t_g) = C \cdot (\langle l_a(g_k, t_g - \theta) \rangle - \langle l_a(g_k, t_g) \rangle)\tag{24}
+r(SM(\to t), g_k, t_g) = C \cdot (\langle l_a(g_k, t_g - \theta) \rangle - \langle l_a(g_k, t_g) \rangle)\tag{24}
 $$
 
-其中 $\langle l_a(g_k, t_g) \rangle$ 是最近 t 个对应情节中试图达成 $g_k$ 的平均表现，$\langle l_a(g_k, t_g - \Theta) \rangle$ 是在情节 $t_g - \theta - \tau$ 与 $t_g - \theta$ 之间试图达成 $g_k$ 的平均表现。同样，这一公式不包含泛化机制，在连续感知运动空间中可能显得低效。可以用与 IM 中相同的机制更新它：
+其中 $\langle l_a(g_k, t_g) \rangle$ 是最近 τ 个对应情节中试图达成 $g_k$ 的平均表现，$\langle l_a(g_k, t_g - \theta) \rangle$ 是在情节 $t_g - \theta - \tau$ 与 $t_g - \theta$ 之间试图达成 $g_k$ 的平均表现。同样，这一公式不包含泛化机制，在连续感知运动空间中可能显得低效。可以用与 IM 中相同的机制更新它：
 
 $$
-r(SM(t), g_k, t_g) = C \cdot (\langle l_a(g_k^{\sigma g}, t_g - \Theta) \rangle - \langle l_a(g_k^{\sigma g}, t_g) \rangle)\tag{25}
+r(SM(\to t), g_k, t_g) = C \cdot (\langle l_a(g_k^{\sigma g}, t_g - \theta) \rangle - \langle l_a(g_k^{\sigma g}, t_g) \rangle)\tag{25}
 $$
 
 记号与 IM 中相同。区域的概念（见 LPM）同样可以在此使用。
@@ -322,7 +322,7 @@ $$
 **最大化能力动机（Maximizing competence, CM）。** 在这一基于能力的形式框架中，也可以实现一种推动机器人去体验已被熟练掌握活动的动机。可以使用如下公式：
 
 $$
-r(SM(t), g_k, t_g) = \frac{C}{\langle l_a(g_k, t_g) \rangle^{\mathcal{R}_n(g_k)}}\tag{26}
+r(SM(\to t), g_k, t_g) = \frac{C}{l_a(g_k, t_g)^{\mathcal{R}_n(g_k)}}\tag{26}
 $$
 
 其中 $g_k$ 落入目标空间的区域 $\mathcal{R}_n$。这一架构假设一种允许渐进构建 $\mathcal{R}_n$ 区域的机制。这一机制可以基于如 Oudeyer et al. (2007) 中的迭代区域分裂，或简单地基于与 $g_k$ 的距离的一个（可能是自适应的）阈值 $\sigma_g$：
@@ -339,7 +339,7 @@ $$
 
 **同步性动机（Synchronicity motivation, SyncM）。** 这里给出的同步性动机基于若干感知运动通道之间短期相关（或约化信息距离，reduced information distance）的信息论度量。有了这样一种动机，对尽可能多的感知运动通道之间存在高短期相关的情境，会显得非常有趣。可以用如下方式形式化。
 
-让我们把感知运动空间 SM 视为 n 个信息源 {SMᵢ} 的集合，这些信息源的可能取值通常对应于属于任意数量箱子（bins）的元素。在每个时刻 t，一个元素 SMʲ 对应信息源 SMⱼ，可使用如下记法：SMⱼ(t) = smⱼ。
+让我们把感知运动空间 SM 视为 n 个信息源 {SMᵢ} 的集合，这些信息源的可能取值通常对应于属于任意数量箱子（bins）的元素。在每个时刻 t，一个元素 SMᵢ 对应信息源 SMᵢ，可使用如下记法：SMᵢ(t) = smᵢ。
 
 两个信息源 SMᵢ 与 SMⱼ 之间的条件熵（conditional entropy）可以计算为：
 
@@ -386,7 +386,7 @@ $$
 无论使用何种度量，我们都可以把与给定的近期时间窗相关联的奖励定义为：
 
 $$
-r(SM(t)) = C \cdot (\sum_i \sum_j s(SM_j, SM_i))\tag{33}
+r(SM(\to t)) = C \cdot (\sum_i \sum_j s(SM_j, SM_i))\tag{33}
 $$
 
 两个（或多个）信息源之间的同步（synchrony）检测被认为是婴儿学习与认知发展的关键机制（例如，物体交互技能 Watson, 1972；自我建模 Rochat and Striano, 2000；词汇学习 Gogate and Bahrick, 1998）。虽然一般不作为动机变量，同步性度量已被用于若干近期的形式模型（例如 Hershey and Movellan, 2000; Prince et al., 2003）。
@@ -394,7 +394,7 @@ $$
 **稳定性动机（Stability motivation, StabM）与方差动机（Variance motivation, VarM）。** 稳定性动机推动机体行动以使感知运动流保持接近其平均值：
 
 $$
-r(SM(t)) = \frac{C}{SM(t) - \langle SM(t) \rangle_\tau}\tag{34}
+r(SM(\to t)) = \frac{C}{SM(t) - \langle SM(t) \rangle_\tau}\tag{34}
 $$
 
 其中 ⟨SM(t)⟩_τ 是感知运动向量在最近 τ 个时间步上的平均值。
@@ -402,7 +402,7 @@ $$
 与稳定性动机相反，方差动机奖励那些感知运动通道取值具有高方差的情境：
 
 $$
-r(SM(t)) = C \cdot (\|SM(t) - \langle SM(t) \rangle_\tau\|)\tag{35}
+r(SM(\to t)) = C \cdot (\|SM(t) - \langle SM(t) \rangle_\tau\|)\tag{35}
 $$
 
 其中 ⟨SM(t)⟩_τ 是感知运动向量在最近 τ 个时间步上的平均值。
@@ -413,16 +413,16 @@ $$
 
 为清晰起见，我们将在本节简短地给出一些非内在的（non-intrinsic）、然而却是内部（internal）的动机系统的计算模型。
 
-例如，设想人们想建造一台具有社会在场动机（social presence motivation）的机器人，且这台机器人能识别其环境中的人脸。如果机器人没有看到足够多的人脸，它应当表现得像孤独一样并寻找社会互动；如果看到的太多，它应当感到不堪重负并试图回避新的社会互动。如果我们把最近 t 个时间帧内看到人脸的平均数定义为 F(t)，把最优平均人脸数定义为 $F_\tau^{\sigma}$，则社会平衡交互（socially balanced interaction, SocM）的奖励可以定义为（$C_1$ 与 $C_2$ 为待定的常数）：
+例如，设想人们想建造一台具有社会在场动机（social presence motivation）的机器人，且这台机器人能识别其环境中的人脸。如果机器人没有看到足够多的人脸，它应当表现得像是孤独、并去寻找社会互动；如果看到的太多，它应当感到不堪重负并试图回避新的社会互动。如果我们把最近 τ 个时间帧内看到人脸的平均数定义为 $F_\tau(t)$，把最优平均人脸数定义为 $F_\tau^{\sigma}$，则社会平衡交互（socially balanced interaction, SocM）的奖励可以定义为（$C_1$ 与 $C_2$ 为待定的常数）：
 
 $$
-r(SM(t)) = C_1 \cdot e^{-C_2 \|F_\tau(t) - F_\tau^{\sigma}\|^2}\tag{36}
+r(SM(\to t)) = C_1 \cdot e^{-C_2 \|F_\tau(t) - F_\tau^{\sigma}\|^2}\tag{36}
 $$
 
 类似地，我们可以为能量维持（energy maintenance）编写奖励，推动机器人把能量维持在一个中间水平（EnerM）（介于饥饿与过食之间），方法是把时刻 t 的能量定义为 E(t)、最优能量水平定义为 E^σ，并使用如下奖励公式：
 
 $$
-r(SM(t)) = C_1 \cdot e^{-C_2 \|E(t) - E^{\sigma}\|^2}\tag{37}
+r(SM(\to t)) = C_1 \cdot e^{-C_2 \|E(t) - E^{\sigma}\|^2}\tag{37}
 $$
 
 这类动机系统已被许多研究者研究（例如相关的一系列例子见 Breazeal, 2002）。它们非常适于模拟自然的、复杂的平衡行为。
@@ -435,7 +435,7 @@ $$
 
 图 7 的表格呈现了本文讨论的全部模型及其所属家族（内在 vs. 外在、自适应 vs. 固定、基于知识/基于能力/形态学、信息论或预测式、稳态 vs. 异稳态）。对每个模型，我们给出其探索潜力（这种动机在多大程度上可能导致探索与研究行为）与组织潜力（这种动机在多大程度上可能导致有结构、有组织的行为）的粗略估计。我们还估计了每类模型的计算成本与迄今已有的计算模型数量。这张表有助于厘清内在动机模型的图景，展示某些家族的潜力与尚少有人研究的区域。确实，我们相信大部分挑战仍在前方。
 
-<table><tr><td rowspan=1 colspan=5></td><td rowspan=1 colspan=1>稳态(-) vs 异稳态(+)</td><td rowspan=1 colspan=1>动机</td><td rowspan=1 colspan=1>探索潜力</td><td rowspan=1 colspan=1>组织潜力</td><td rowspan=1 colspan=1>计算成本</td><td rowspan=1 colspan=1>既有模型</td></tr><tr><td rowspan=17 colspan=1>内部</td><td rowspan=15 colspan=1>内在</td><td rowspan=12 colspan=1>自适应</td><td rowspan=9 colspan=1>基于知识</td><td rowspan=4 colspan=1>信息论</td><td rowspan=3 colspan=1>+</td><td rowspan=1 colspan=1>UM</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=1 colspan=1>IGM</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=1 colspan=1>DSM</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=1 colspan=1>1</td><td rowspan=1 colspan=1>DFM</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=5 colspan=1>预测式</td><td rowspan=1 colspan=1>+</td><td rowspan=1 colspan=1>NM</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>***</td></tr><tr><td rowspan=1 colspan=1>1</td><td rowspan=1 colspan=1>ILNM</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=2 colspan=1>+</td><td rowspan=1 colspan=1>LPM</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>?</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=1 colspan=1>SM</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>?</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=1 colspan=1>1</td><td rowspan=1 colspan=1>FM</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>□（原文符号在转换中丢失，无法复原）</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=3 colspan=2>基于能力</td><td rowspan=2 colspan=1>+</td><td rowspan=1 colspan=1>IM</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>?</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=1 colspan=1>CPM</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=1 colspan=1>1</td><td rowspan=1 colspan=1>CM</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>□（原文符号在转换中丢失，无法复原）</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=3 colspan=1>固定</td><td rowspan=3 colspan=2>形态学</td><td rowspan=2 colspan=1>1</td><td rowspan=1 colspan=1>SyncM</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=1 colspan=1>StabM</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=1 colspan=1>+</td><td rowspan=1 colspan=1>VarM</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=2 colspan=4>外在</td><td rowspan=1 colspan=1>二</td><td rowspan=1 colspan=1>SocM</td><td rowspan=1 colspan=1>1</td><td rowspan=1 colspan=1>1</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>**</td></tr><tr><td rowspan=1 colspan=1>1</td><td rowspan=1 colspan=1>EnerM</td><td rowspan=1 colspan=1>/</td><td rowspan=1 colspan=1>1</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>***</td></tr></table>
+<table><tr><td rowspan=1 colspan=5></td><td rowspan=1 colspan=1>稳态(-) vs 异稳态(+)</td><td rowspan=1 colspan=1>动机</td><td rowspan=1 colspan=1>探索潜力</td><td rowspan=1 colspan=1>组织潜力</td><td rowspan=1 colspan=1>计算成本</td><td rowspan=1 colspan=1>既有模型</td></tr><tr><td rowspan=17 colspan=1>内部</td><td rowspan=15 colspan=1>内在</td><td rowspan=12 colspan=1>自适应</td><td rowspan=9 colspan=1>基于知识</td><td rowspan=4 colspan=1>信息论</td><td rowspan=3 colspan=1>+</td><td rowspan=1 colspan=1>UM</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>**</td></tr><tr><td rowspan=1 colspan=1>IGM</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>**</td></tr><tr><td rowspan=1 colspan=1>DSM</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=1 colspan=1>−</td><td rowspan=1 colspan=1>DFM</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=5 colspan=1>预测式</td><td rowspan=1 colspan=1>+</td><td rowspan=1 colspan=1>NM</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>***</td></tr><tr><td rowspan=1 colspan=1>−</td><td rowspan=1 colspan=1>ILNM</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>**</td></tr><tr><td rowspan=2 colspan=1>+</td><td rowspan=1 colspan=1>LPM</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>**</td></tr><tr><td rowspan=1 colspan=1>SM</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=1 colspan=1>−</td><td rowspan=1 colspan=1>FM</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>**</td></tr><tr><td rowspan=3 colspan=2>基于能力</td><td rowspan=2 colspan=1>+</td><td rowspan=1 colspan=1>IM</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=1 colspan=1>CPM</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=1 colspan=1>−</td><td rowspan=1 colspan=1>CM</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=3 colspan=1>固定</td><td rowspan=3 colspan=2>形态学</td><td rowspan=2 colspan=1>−</td><td rowspan=1 colspan=1>SyncM</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>**</td><td rowspan=1 colspan=1>**</td></tr><tr><td rowspan=1 colspan=1>StabM</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>**</td></tr><tr><td rowspan=1 colspan=1>+</td><td rowspan=1 colspan=1>VarM</td><td rowspan=1 colspan=1>***</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>*</td></tr><tr><td rowspan=2 colspan=4>外在</td><td rowspan=1 colspan=1>−</td><td rowspan=1 colspan=1>SocM</td><td rowspan=1 colspan=1>/</td><td rowspan=1 colspan=1>/</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>***</td></tr><tr><td rowspan=1 colspan=1>−</td><td rowspan=1 colspan=1>EnerM</td><td rowspan=1 colspan=1>/</td><td rowspan=1 colspan=1>/</td><td rowspan=1 colspan=1>*</td><td rowspan=1 colspan=1>***</td></tr></table>
 
 [图：图 7. 该表呈现本文讨论的全部模型及其所属家族。对每个模型，我们给出其探索潜力与组织潜力、以及计算成本和各类别既有计算模型数量的粗略估计。]
 
