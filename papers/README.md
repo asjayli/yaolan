@@ -6,6 +6,7 @@
 
 | 文件 | 论文 | 支撑的概念 |
 |------|------|-----------|
+| 1994-Baillargeon-Physical-World.pdf | Baillargeon (1994). *How do infants learn about the physical world?* Current Directions in Psychological Science, 3(5), 133–140. DOI: 10.1111/1467-8721.ep10770614（期刊原文扫描版） | 违背预期范式的方法论综述（D2 生物同源） |
 | 1996-Saffran-Statistical-Learning.pdf | Saffran, Aslin & Newport (1996). *Statistical learning by 8-month-old infants*. Science, 274(5294), 1926–1928. DOI: 10.1126/science.274.5294.1926 | 统计学习（语言习得三规律之一） |
 | 2005-Hensch-Critical-Period-Plasticity.pdf | Hensch (2005). *Critical period plasticity in local cortical circuits*. Nature Reviews Neuroscience, 6(11), 877–888. DOI: 10.1038/nrn1787（期刊原文） | 敏感期（2.5）——E/I 平衡与 PV/PNN 关闭机制 |
 | 2009-Csibra-Natural-Pedagogy.pdf | Csibra & Gergely (2009). *Natural pedagogy*. Trends in Cognitive Sciences, 13(4), 148–153. DOI: 10.1016/j.tics.2009.01.005（收录书章手稿版：Navigating the Social World, OUP——同作者同理论，内容覆盖期刊版并扩展） | 社会回路（2.7）——ostensive 信号与泛化学习模式 |
@@ -42,8 +43,6 @@
 - Werker, J. F. & Tees, R. C. (1984). *Cross-language speech perception: Evidence for perceptual reorganization during the first year of life*. Infant Behavior and Development, 7(1), 49–63. DOI: 10.1016/S0163-6383(84)80047-1 （音位感知敏感期）
   要点：6-8 月婴儿可分辨任意语言的音位对比，10-12 月后非母语对比的分辨系统性衰退——知觉被母语统计结构重组织。（述于 10 §六）
 - Kuhl, P. K. (2004). *Early language acquisition: cracking the speech code*. Nature Reviews Neuroscience, 5(11), 831–843. DOI: 10.1038/nrn1533 （Semantic Scholar 标 CLOSED；**已有 2010 Neuron 作者版替代收录**，原文可不取）
-- Baillargeon, R. (1994). *How do infants learn about the physical world?* Current Directions in Psychological Science, 3(5), 133–140. DOI: 10.1111/1467-8721.ep10770614 （客体概念与违背预期范式综述）
-  要点：违背预期范式的方法论——以注视时长为指标读取婴儿的物理预期（支撑、遮挡、恒存）。（述于 10 §五）
 - Baillargeon, R. & DeVos, J. (1991). *Object permanence in young infants: Further evidence*. Child Development, 62(6), 1227–1246. （客体恒存的早期经典证据）
   要点：5.5 月婴儿对遮挡后持续存在的物体已有预期（高/矮胡萝卜实验）——"知道"先于"寻找"。（述于 10 §五）
 - Smith, L. B. & Gasser, M. (2005). *The development of embodied cognition: Six lessons from babies*. Artificial Life, 11(1–2), 13–29. DOI: 10.1162/1064546053278973 （具身认知六课）
